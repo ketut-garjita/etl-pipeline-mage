@@ -1,9 +1,0 @@
-columns format version: 1
-7 columns:
-`year` Int64
-`month_name` String
-`total_sales` Float64
-`total_profit` Float64
-`avg_profit_margin` Float64
-`avg_actual_shipment_days` Float64
-`avg_scheduled_shipment_days` Float64

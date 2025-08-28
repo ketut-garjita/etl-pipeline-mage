@@ -1,9 +1,0 @@
-connector_type: duckdb
-database: /home/dataeng/projects/etl-duckdb-mage/streaming_pipeline/data/warehouse.duckdb
-schema: public
-table_name: supply_chain_stream
-file_type: json  # other options: csv, parquet
-mode: append
-create_table_if_not_exists: true
-partition_by: null
-
