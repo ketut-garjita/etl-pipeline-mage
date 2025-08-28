@@ -1,0 +1,21 @@
+networks:
+  default:
+    name: ${NET}
+    external: true
+
+services:
+  dbt:
+    build: .
+    container_name: dbt
+    ports:
+      - "8087:8080"
+    volumes:
+      #- .:/app
+      #- .:/home/src/dataeng-2/dbt
+      - .:/home/src/dbt
+      - ~/.dbt:/root/.dbt
+      # - /home/dataeng/projects/dataengineering/airflow-project/plugins/data/warehouse.duckdb:/home/src/dataeng-2/dbt/dbt-duckdb/warehouse.duckdb
+    working_dir: /home/src/dbt
+    stdin_open: true
+    tty: true
+

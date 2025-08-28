@@ -1,0 +1,62 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: mage_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mage
+      POSTGRES_PASSWORD: mage_password
+      POSTGRES_DB: mage_metadata
+    ports:
+      - "5433:5432"       
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mage_network
+
+  mage_demo_project:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mage_demo_project
+    depends_on:
+      - postgres
+    ports:
+      - "6789:6789"
+    environment:
+      - MAGE_PORT=6789
+      - USER_CODE_PATH=/home/src/demo_project
+      - MAGE_DATABASE_CONNECTION_URL=postgresql://mage:mage_password@mage_postgres:5432/mage_metadata
+      - PROJECT_NAME=demo_project
+      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    volumes:
+      - ./demo_project:/home/src/demo_project
+    networks:
+      - mage_network
+
+  mage_dataeng:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mage_dataeng
+    depends_on:
+      - postgres
+    ports:
+      - "6790:6789"
+    environment:
+      - MAGE_PORT=6789
+      - USER_CODE_PATH=/home/src/dataeng
+      - MAGE_DATABASE_CONNECTION_URL=postgresql://mage:mage_password@mage_postgres:5432/mage_metadata
+      - PROJECT_NAME=dataeng
+      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    volumes:
+      - ./dataeng:/home/src/dataeng
+    networks:
+      - mage_network
+
+volumes:
+  postgres_data:
+
+networks:
+  mage_network:
+    driver: bridge

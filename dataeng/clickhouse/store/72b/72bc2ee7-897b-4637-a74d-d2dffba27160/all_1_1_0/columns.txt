@@ -1,0 +1,7 @@
+columns format version: 1
+5 columns:
+`shipping_date` String
+`days_for_shipment_scheduled` String
+`days_for_shipping_real` String
+`shipping_mode` String
+`delivery_status` String

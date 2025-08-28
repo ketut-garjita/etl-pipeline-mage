@@ -1,0 +1,12 @@
+columns format version: 1
+10 columns:
+`customer_id` String
+`customer_email` String
+`customer_fname` String
+`customer_lname` String
+`customer_segment` String
+`customer_city` String
+`customer_country` String
+`customer_state` String
+`customer_street` String
+`customer_zipcode` String

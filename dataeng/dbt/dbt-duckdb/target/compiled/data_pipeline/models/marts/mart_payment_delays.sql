@@ -1,0 +1,7 @@
+
+select
+    delivery_status,
+    AVG(days_for_shipping_real - days_for_shipment_scheduled) AS avg_payment_delay,
+    COUNT(1) AS count_of_orders
+FROM "warehouse"."gold"."dim_shipping"
+GROUP BY delivery_status

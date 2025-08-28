@@ -1,0 +1,24 @@
+networks:
+  default:
+    name: ${NET}
+    external: true
+
+services:
+
+  # CLICKHOUSE
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: "clickhouse-server"
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - .:/var/lib/clickhouse
+      - ./staging-ch:/var/lib/clickhouse/user_files
+    environment:
+      - CLICKHOUSE_DB=default
+      - CLICKHOUSE_USER=default
+      - CLICKHOUSE_PASSWORD=
+
+
+

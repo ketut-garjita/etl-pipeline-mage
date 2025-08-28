@@ -1,0 +1,9 @@
+columns format version: 1
+7 columns:
+`order_zipcode` String
+`order_city` String
+`order_state` String
+`order_region` String
+`order_country` String
+`latitude` String
+`longitude` String

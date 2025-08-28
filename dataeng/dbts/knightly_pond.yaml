@@ -1,0 +1,5 @@
+command: run
+select: staging.*
+project_dir: /app/business_transformations
+vars: {"env": "dev"}
+profiles_dir: /app/business_transformations
