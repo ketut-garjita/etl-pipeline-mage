@@ -1,0 +1,12 @@
+data_pipeline:
+  target: postgres
+  outputs:
+    postgres:
+      type: postgres
+      host: dataeng-2-postgres
+      port: 5432
+      user: etl_user
+      password: etl_password
+      dbname: etl
+      schema: gold
+      threads: 4

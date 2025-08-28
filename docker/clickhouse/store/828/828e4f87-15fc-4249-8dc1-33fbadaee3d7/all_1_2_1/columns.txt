@@ -1,0 +1,7 @@
+columns format version: 1
+5 columns:
+`Department_Name` Nullable(String)
+`Market` Nullable(String)
+`category_name` Nullable(String)
+`total_committed_funds` Nullable(Float64)
+`commitment_fulfillment_rate` Nullable(Float64)

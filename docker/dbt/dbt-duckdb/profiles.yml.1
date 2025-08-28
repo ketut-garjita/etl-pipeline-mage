@@ -1,0 +1,28 @@
+data_pipeline:
+  target: dev
+  outputs:
+    duckdb:
+      type: duckdb
+      path: /home/src/dataeng-2/dbt/warehouse.duckdb
+      schema: main
+
+    clickhouse:
+      type: clickhouse
+      schema: default
+      host: clickhouse-server
+      port: 8123
+      user: etl_user
+      password: etl_password
+      secure: false
+      verify: false
+      database: etl
+
+    postgres:
+      type: postgres
+      host: dataeng-2-postgres
+      port: 5432
+      user: etl_user
+      password: etl_password
+      dbname: etl
+      schema: public
+      threads: 4

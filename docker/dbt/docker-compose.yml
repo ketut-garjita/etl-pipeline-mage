@@ -1,0 +1,17 @@
+networks:
+  default:
+    name: ${NET}
+    external: true
+
+services:
+  dbt:
+    build: .
+    container_name: dbt
+    ports:
+      - "8087:8080"
+    volumes:
+      - .:/app
+      - ~/.dbt:/root/.dbt
+    working_dir: /app
+    stdin_open: true
+    tty: true

@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: dim_customer_duckdb
+    description: "Dimension customer table"
+    columns:
+      - name: Customer_Id
+      - name: Customer_Email
+      - name: Customer_Fname
+      - name: Customer_Lname
+      - name: Customer_Segment
+      - name: Customer_City
+      - name: Customer_Country
+      - name: Customer_State
+      - name: Customer_Street
+      - name: Customer_Zipcode
+      - name: Ingestion_Time
+
+  - name: dim_department_duckdb
+    description: "Dimension department table"
+    columns:
+      - name: Department_Id
+      - name: Department_Name
+      - name: Market
+      - name: Ingestion_Time
+
+  - name: dim_location_duckdb
+    description: "Dimension location table"
+    columns:
+      - name: order_zipcode
+      - name: order_city
+      - name: order_state
+      - name: order_region
+      - name: order_country
+      - name: latitude
+      - name: longitude
+
+  - name: fact_order_duckdb
+    description: "Dimension order table"
+    columns:
+      - name: order_id
+      - name: order_customer_id
+      - name: order_item_id
+      - name: product_card_id
+      - name: department_id
+      - name: order_date
+      - name: order_item_discount
+      - name: order_item_discount_rate
+      - name: order_item_product_price
+      - name: order_item_profit_ratio
+      - name: order_item_quantity
+      - name: sales_per_customer
+      - name: sales
+      - name: order_item_total
+      - name: order_profit_per_order
+      - name: order_status
+
+  - name: dim_product_duckdb
+    description: "Dimension product table"
+    columns:
+      - name: product_card_id
+      - name: product_category_id
+      - name: category_name,=
+      - name: product_description
+      - name: product_image
+      - name: product_name
+      - name: product_price
+      - name: product_status
+
+  - name: dim_shipping_duckdb
+    description: "Dimension shipping table"
+    columns:
+      - name: shipping_date
+      - name: days_for_shipping_real
+      - name: days_for_shipping_scheduled
+      - name: shipping_mode
+      - name: delivery_status
+

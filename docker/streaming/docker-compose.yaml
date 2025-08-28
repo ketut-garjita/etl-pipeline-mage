@@ -1,0 +1,16 @@
+networks:
+  default:
+    name: ${NET}
+    external: true
+services:
+  stream:
+      build:
+        context: .
+      container_name: stream
+      command: python producer.py
+      volumes:
+        - ./streaming_pipeline:/home/streaming_pipeline
+      working_dir: /home/streaming_pipeline
+      environment:
+        PYTHONUNBUFFERED: 1
+        KAFKA_BOOTSTRAP_SERVERS: LAINTEXT://kafka-kraft:29092 

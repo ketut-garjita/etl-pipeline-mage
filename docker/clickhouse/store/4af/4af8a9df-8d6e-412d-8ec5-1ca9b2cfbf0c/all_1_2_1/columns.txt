@@ -1,0 +1,5 @@
+columns format version: 1
+3 columns:
+`order_customer_id` Nullable(Int64)
+`avg_order_total` Nullable(Float64)
+`num_orders` Nullable(Int64)

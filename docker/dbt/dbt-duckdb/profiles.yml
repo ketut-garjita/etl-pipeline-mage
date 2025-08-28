@@ -1,0 +1,8 @@
+data_pipeline:
+  target: duckdb
+  outputs:
+    duckdb:
+      type: duckdb
+      path: /app/dbt-duckdb/warehouse.duckdb
+      schema: gold
+
